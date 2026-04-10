@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Recipe Schema",
+  "type": "object",
+  "properties": {
+    "recipe": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "difficulty": { "type": "string" },
+        "prep_time": { "type": "string" },
+        "cook_within": { "type": "string" },
+        "spice_level": { "type": "string" },
+        "nutrition_per_serving": {
+          "type": "object",
+          "properties": {
+            "calories": { "type": "integer" },
+            "carbs": { "type": "string" },
+            "fat": { "type": "string" },
+            "protein": { "type": "string" },
+            "sodium": { "type": "string" }
+          },
+          "required": ["calories", "carbs", "fat", "protein", "sodium"]
+        },
+        "dietary_info": {
+          "type": "object",
+          "properties": {
+            "contains": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "servings": { "type": "integer" },
+        "ingredients": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "equipment_needed": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "pre_cooking_steps": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "instructions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "step": { "type": "integer" },
+              "title": { "type": "string" },
+              "action": { "type": "string" }
+            },
+            "required": ["step", "title", "action"]
+          }
+        }
+      },
+      "required": ["title", "ingredients", "instructions"]
+    }
+  },
+  "required": ["recipe"]
+}
