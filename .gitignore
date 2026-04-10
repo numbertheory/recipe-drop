@@ -3,6 +3,8 @@
 # RecipeDrop
 *.tmp.json
 *.failed.json
+*.json
+*.pdf
 
 # Python
 __pycache__/
